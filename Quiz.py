@@ -1,3 +1,5 @@
+import time
+
 def ask_question(question, options, correct_answer):
     print(question)
     for i, option in enumerate(options):
@@ -76,12 +78,27 @@ def run_quiz():
     ]
     
     score = 0
+    start_time = time.time()  # Start timer
 
     for q in questions:
         if ask_question(q["question"], q["options"], q["correct_answer"]):
             score += 1
 
-    print(f"Quiz Complete! Your final score is: {score} out of {len(questions)}")
+    end_time = time.time()  # End timer
+    duration = int(end_time - start_time)
+
+    print(f"\nQuiz Complete! Your final score is: {score} out of {len(questions)}")
+    print(f"You completed the quiz in {duration} seconds.")
+
+    # Feedback based on score
+    if score == len(questions):
+        print("Excellent! You're a fashion expert! 👗")
+    elif score >= 7:
+        print("Great job! You know your fashion. 👠")
+    elif score >= 4:
+        print("Not bad! But there's room to grow. 👚")
+    else:
+        print("Looks like you need a fashion refresher. 🧵")
 
 # Run the quiz
 if __name__ == "__main__":
