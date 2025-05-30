@@ -15,7 +15,7 @@ def ask_question(question, options, correct_answer):
         except ValueError:
             print("Invalid input. Please enter a number.")
 
-    if options[user_answer - 1] == correct_answer:
+    if options[user_answer-1] == correct_answer:
         print("Correct!\n")
         return True
     else:
